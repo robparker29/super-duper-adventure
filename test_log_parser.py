@@ -11,10 +11,10 @@ from datetime import datetime
 from unittest.mock import patch, mock_open
 
 import sys
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'python'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from python.log_parser import LogParser
-from python.models import LogEntry, HttpMethod, ParseError
+from log_parser import LogParser
+from models import LogEntry, HttpMethod, ParseError
 
 
 class TestLogParser:

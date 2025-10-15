@@ -10,12 +10,12 @@ import json
 import sys
 from pathlib import Path
 
-# Add the python directory to path
-sys.path.append(str(Path(__file__).parent / 'python'))
+# Add the current directory to path so we can import from python/
+sys.path.insert(0, str(Path(__file__).parent))
 
-from python.log_parser import LogParser
-from python.analytics import LogAnalytics
-from python.utils import save_report_as_json, format_bytes, format_duration
+from log_parser import LogParser
+from analytics import LogAnalytics
+from utils import save_report_as_json, format_bytes, format_duration
 import time
 
 

@@ -8,12 +8,12 @@ Demonstrates basic usage patterns and API calls.
 import sys
 from pathlib import Path
 
-# Add the python directory to path
-sys.path.append(str(Path(__file__).parent / 'python'))
+# Add the current directory to path so we can import from python/
+sys.path.insert(0, str(Path(__file__).parent))
 
-from python.log_parser import LogParser
-from python.analytics import LogAnalytics, TrendAnalyzer
-from python.utils import format_bytes, save_report_as_json
+from log_parser import LogParser
+from analytics import LogAnalytics, TrendAnalyzer
+from utils import format_bytes, save_report_as_json
 
 
 def main():

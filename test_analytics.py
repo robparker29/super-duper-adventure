@@ -10,10 +10,10 @@ from collections import Counter
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..', 'python'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
 
-from python.analytics import LogAnalytics, TrendAnalyzer
-from python.models import LogEntry, HttpMethod, AnalyticsReport
+from analytics import LogAnalytics, TrendAnalyzer
+from models import LogEntry, HttpMethod, AnalyticsReport
 
 
 class TestLogAnalytics:

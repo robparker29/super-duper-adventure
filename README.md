@@ -36,13 +36,19 @@ This system processes Apache/Nginx-style web server logs to extract meaningful a
 
 ### Setup
 ```bash
-# Install Python dependencies
-cd python && pip install -r requirements.txt
+# Verify installation (all tests should pass)
+python test_system.py
 
-# Install Node.js dependencies  
+# Try the example
+python example.py
+
+# Install Python testing dependencies (optional)
+pip install pytest pytest-cov
+
+# Install JavaScript dependencies  
 cd javascript && npm install
 
-# Run tests
+# Run tests (if pytest installed)
 python -m pytest tests/python/
 npm test --prefix javascript/
 ```

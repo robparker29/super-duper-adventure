@@ -9,17 +9,17 @@ import sys
 import traceback
 from pathlib import Path
 
-# Add the python directory to path
-sys.path.append(str(Path(__file__).parent / 'python'))
+# Add the current directory to path so we can import from python/
+sys.path.insert(0, str(Path(__file__).parent))
 
 def test_imports():
     """Test that all modules can be imported."""
     print("Testing imports...", end=" ")
     try:
-        from python.log_parser import LogParser
-        from python.analytics import LogAnalytics, TrendAnalyzer
-        from python.models import LogEntry, AnalyticsReport, HttpMethod
-        from python.utils import format_bytes, format_duration
+        from log_parser import LogParser
+        from analytics import LogAnalytics, TrendAnalyzer
+        from models import LogEntry, AnalyticsReport, HttpMethod
+        from utils import format_bytes, format_duration
         print("✓ PASS")
         return True
     except Exception as e:
@@ -30,7 +30,7 @@ def test_basic_parsing():
     """Test basic log parsing functionality."""
     print("Testing log parsing...", end=" ")
     try:
-        from python.log_parser import LogParser
+        from log_parser import LogParser
         
         parser = LogParser()
         
@@ -53,8 +53,8 @@ def test_sample_file():
     """Test parsing the sample log file."""
     print("Testing sample file...", end=" ")
     try:
-        from python.log_parser import LogParser
-        from python.analytics import LogAnalytics
+        from log_parser import LogParser
+        from analytics import LogAnalytics
         
         sample_file = Path("data/sample.log")
         if not sample_file.exists():
@@ -82,8 +82,8 @@ def test_analytics():
     """Test analytics functionality."""
     print("Testing analytics...", end=" ")
     try:
-        from python.models import LogEntry, HttpMethod
-        from python.analytics import LogAnalytics
+        from models import LogEntry, HttpMethod
+        from analytics import LogAnalytics
         from datetime import datetime, timezone
         
         # Create test data
@@ -125,7 +125,7 @@ def test_utils():
     """Test utility functions."""
     print("Testing utilities...", end=" ")
     try:
-        from python.utils import format_bytes, format_duration, validate_ip_address
+        from utils import format_bytes, format_duration, validate_ip_address
         
         # Test format_bytes
         assert format_bytes(1024) == "1.0 KB"
