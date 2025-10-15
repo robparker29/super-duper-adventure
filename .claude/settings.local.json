@@ -5,7 +5,8 @@
       "Bash(dir:*)",
       "Bash(python test:*)",
       "Bash(chcp:*)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(tree:*)"
     ],
     "deny": [],
     "ask": []

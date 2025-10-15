@@ -9,8 +9,10 @@ import sys
 import traceback
 from pathlib import Path
 
-# Add the current directory to path so we can import from python/
-sys.path.insert(0, str(Path(__file__).parent))
+# Add the python directory to path so we can import modules
+project_root = Path(__file__).parent.parent
+python_dir = project_root / 'python'
+sys.path.insert(0, str(python_dir))
 
 def test_imports():
     """Test that all modules can be imported."""
@@ -56,7 +58,7 @@ def test_sample_file():
         from log_parser import LogParser
         from analytics import LogAnalytics
         
-        sample_file = Path("data/sample.log")
+        sample_file = project_root / "data" / "sample.log"
         if not sample_file.exists():
             print("✗ SKIP: Sample file not found")
             return True
@@ -146,39 +148,6 @@ def test_utils():
         print(f"✗ FAIL: {e}")
         return False
 
-def test_javascript_dependencies():
-    """Test that JavaScript dependencies can be checked."""
-    print("Testing JS dependencies...", end=" ")
-    try:
-        import subprocess
-        import os
-        
-        js_dir = Path("javascript")
-        if not js_dir.exists():
-            print("✗ SKIP: JavaScript directory not found")
-            return True
-        
-        # Check if package.json exists
-        if not (js_dir / "package.json").exists():
-            print("✗ SKIP: package.json not found")
-            return True
-        
-        # Try to check if npm is available
-        try:
-            result = subprocess.run(['npm', '--version'], 
-                                  capture_output=True, text=True, cwd=js_dir)
-            if result.returncode == 0:
-                print(f"✓ PASS (npm {result.stdout.strip()})")
-            else:
-                print("✗ SKIP: npm not available")
-        except FileNotFoundError:
-            print("✗ SKIP: npm not found")
-        
-        return True
-    except Exception as e:
-        print(f"✗ FAIL: {e}")
-        return False
-
 def main():
     """Run all tests."""
     print("Log Analysis System - Quick Verification Test")
@@ -189,8 +158,7 @@ def main():
         test_basic_parsing,
         test_analytics,
         test_utils,
-        test_sample_file,
-        test_javascript_dependencies
+        test_sample_file
     ]
     
     passed = 0
@@ -210,9 +178,9 @@ def main():
     if passed == total:
         print("🎉 All tests passed! The system is ready to use.")
         print("\nNext steps:")
-        print("1. Run: ./example.py")
-        print("2. Try: ./analyze.py data/sample.log")
-        print("3. Start API: cd javascript && npm install && npm start")
+        print("1. Run: python example.py")
+        print("2. Try: python analyze.py data/sample.log")
+        print("3. Explore the test files in tests/")
         return 0
     else:
         print("❌ Some tests failed. Please check the installation.")

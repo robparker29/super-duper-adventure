@@ -1,16 +1,16 @@
 # Quick Setup Guide
 
-## ✅ System Fixed and Ready!
+## ✅ System Ready - Testing Ground
 
-The import issues have been resolved. Your log analysis system is now fully functional!
+Your Python log analysis testing ground is fully set up and ready to use!
 
 ## 🚀 Immediate Next Steps
 
 ### 1. **Verify Everything Works** ✅
 ```bash
-python test_system.py
+python -X utf8 tests/test_system.py
 ```
-**Expected Output**: All 6 tests should pass with green checkmarks
+**Expected Output**: All 5 tests should pass with green checkmarks
 
 ### 2. **Try the Example** ✅
 ```bash
@@ -24,73 +24,95 @@ python analyze.py data/sample.log
 ```
 **What you'll see**: Detailed analytics report of the sample web server logs
 
-### 4. **Start the API Server**
+### 4. **Run Full Test Suite** (optional, requires pytest)
 ```bash
-cd javascript
-npm install
-npm start
+pip install -r requirements.txt
+python -m pytest tests/ -v
 ```
-**Then visit**: `http://localhost:3000/health` to confirm the API is running
-
-### 5. **Test API with Sample Data**
-```bash
-curl -X POST http://localhost:3000/api/analyze \
-  -F "logfile=@data/sample.log" \
-  -F "topN=10"
-```
+**What you'll see**: Comprehensive test results with detailed output
 
 ## 🎯 Ready for Coding Challenges
 
 Now you can tackle the programming challenges in `CHALLENGES.md`:
 
-- **Level 1 (Easy)**: Start with Challenge 1.1 - Fix the Broken Parser
-- **Level 2 (Intermediate)**: Memory optimization and rate limiting
-- **Level 3 (Advanced)**: Real-time analytics and ML integration
-- **Level 4 (Expert)**: Distributed processing and enterprise security
+- **Level 1 (Easy)**: Start with basic debugging and feature additions
+- **Level 2 (Intermediate)**: Memory optimization and advanced parsing
+- **Level 3 (Advanced)**: Trend analysis and ML integration
+- **Level 4 (Expert)**: Distributed processing and advanced algorithms
 
 ## 📚 What's Available
 
-| File | Purpose |
+| File/Directory | Purpose |
 |------|---------|
-| `python/` | Core analysis engine (parser, analytics, models) |
-| `javascript/` | API server with Express.js |
-| `tests/` | Comprehensive test suites |
+| `python/` | Core analysis engine (parser, analytics, models, utils) |
+| `tests/` | Comprehensive test suites for all modules |
 | `data/sample.log` | Sample web server logs for testing |
+| `analyze.py` | CLI tool for analyzing log files |
+| `example.py` | Example usage and demonstrations |
 | `CHALLENGES.md` | 20+ progressive coding challenges |
-| `docs/API.md` | Complete API documentation |
+| `README.md` | Main documentation |
+| `PROJECT_OVERVIEW.md` | Detailed project overview |
 
 ## 🛠️ Key Commands
 
 ```bash
-# Install testing dependencies (if you want to run full test suite)
+# Verify system (quick test)
+python -X utf8 tests/test_system.py
+
+# Install testing dependencies (optional)
 pip install pytest pytest-cov
 
 # Run all Python tests (requires pytest)
-python -m pytest tests/python/ -v
-
-# Run JavaScript tests  
-cd javascript && npm test
+python -m pytest tests/ -v
 
 # Generate coverage report (requires pytest-cov)
-python -m pytest tests/python/ --cov=python --cov-report=html
+python -m pytest tests/ --cov=python --cov-report=html
 
 # Analyze your own log files
 python analyze.py /path/to/your/logfile.log --output report.json
 
 # Get help with CLI options
 python analyze.py --help
+
+# Run example demonstration
+python example.py
+```
+
+## 🐍 Python Environment Notes
+
+**Windows Users**: Use `python -X utf8` for scripts that output Unicode characters (✓, ✗, etc.)
+
+```bash
+# Set environment variable for session (Windows)
+set PYTHONUTF8=1
+
+# Or use the -X flag each time
+python -X utf8 tests/test_system.py
+```
+
+**Linux/Mac Users**: Unicode should work by default
+```bash
+python tests/test_system.py
 ```
 
 ## 🎉 You're All Set!
 
-Your log analysis system is production-ready and perfect for:
-- **Interview practice** with realistic coding challenges
-- **Skill demonstration** with clean, documented code
-- **Learning** advanced Python and JavaScript patterns
-- **Portfolio projects** showing full-stack capabilities
+Your log analysis testing ground is ready for:
+- **Practice** with realistic Python coding challenges
+- **Learning** data processing and analytics patterns
+- **Testing** comprehensive test-driven development
+- **Experimentation** with log parsing and analysis techniques
+
+## 📖 Learning Path
+
+1. **Explore the Code**: Read through `python/` modules to understand the architecture
+2. **Run Tests**: Execute all tests to see how they work
+3. **Try Examples**: Run `example.py` and `analyze.py`
+4. **Tackle Challenges**: Start with Level 1 in `CHALLENGES.md`
+5. **Write Your Own**: Add new features and tests
 
 **Happy coding!** 🚀
 
 ---
 
-*Need help? Check the detailed documentation in README.md or API.md*
+*Need help? Check the detailed documentation in README.md or PROJECT_OVERVIEW.md*
