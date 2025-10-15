@@ -2,7 +2,10 @@
   "permissions": {
     "allow": [
       "Bash(dir /b c:Usersparkecodeshopify_prep5-shopify-mock-interviewsuper-duper-adventure)",
-      "Bash(dir:*)"
+      "Bash(dir:*)",
+      "Bash(python test:*)",
+      "Bash(chcp:*)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

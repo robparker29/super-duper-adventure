@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Iterator, List, Optional, TextIO
 from pathlib import Path
 
-from .models import LogEntry, HttpMethod, ParseError
+from models import LogEntry, HttpMethod, ParseError
 
 
 class LogParser:

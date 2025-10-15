@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import List, Dict, Any, Union
 from datetime import datetime
 
-from .models import LogEntry, AnalyticsReport
+from models import LogEntry, AnalyticsReport
 
 
 def format_bytes(bytes_value: int) -> str:

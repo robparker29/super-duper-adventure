@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 from typing import List, Dict, Any, Tuple
 import statistics
 
-from .models import LogEntry, AnalyticsReport
+from models import LogEntry, AnalyticsReport
 
 
 class LogAnalytics:
