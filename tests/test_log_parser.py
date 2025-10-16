@@ -11,7 +11,7 @@ from datetime import datetime
 from unittest.mock import patch, mock_open
 
 import sys
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..', '..'))
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), '..'))
 
 from log_parser import LogParser
 from models import LogEntry, HttpMethod, ParseError
