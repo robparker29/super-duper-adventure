@@ -6,7 +6,11 @@
       "Bash(python test:*)",
       "Bash(chcp:*)",
       "Bash(python:*)",
-      "Bash(tree:*)"
+      "Bash(tree:*)",
+      "Bash(if not exist requirements mkdir requirements)",
+      "Bash(mkdir:*)",
+      "Bash(set PYTHONPATH=%CD%python)",
+      "Bash(%CD%)"
     ],
     "deny": [],
     "ask": []
